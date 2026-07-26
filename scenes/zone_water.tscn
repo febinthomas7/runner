@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://ded7v8urxgo3c"]
+
+[ext_resource type="Script" uid="uid://rsrjh1wpnbd3" path="res://scripts/zone_water.gd" id="1_x512c"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_s03tw"]
+load_path = "res://.godot/imported/Water Background.png-2d426fc52893acea606e1980ce6ea279.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lfkbx"]
+size = Vector2(2819, 504)
+
+[node name="ZoneWater" type="Area2D" unique_id=1957249064]
+script = ExtResource("1_x512c")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=365154812]
+self_modulate = Color(1, 1, 1, 0.5372549)
+z_index = 30
+texture_filter = 1
+position = Vector2(640, 1032)
+scale = Vector2(14.055138, 1.8503265)
+texture = SubResource("CompressedTexture2D_s03tw")
+region_enabled = true
+region_rect = Rect2(0, 0, 200, 272)
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=16836830]
+z_index = -6
+texture_filter = 1
+position = Vector2(640, 1032)
+scale = Vector2(14.055138, 1.8503265)
+texture = SubResource("CompressedTexture2D_s03tw")
+region_enabled = true
+region_rect = Rect2(0, 0, 200, 272)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1120154097]
+position = Vector2(640, 1032)
+shape = SubResource("RectangleShape2D_lfkbx")
+debug_color = Color(0.94285446, 0.23910183, 0.067125745, 0.41960785)

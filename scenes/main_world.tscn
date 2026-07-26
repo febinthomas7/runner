@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://q7oig8q2lsbn"]
+
+[ext_resource type="Script" uid="uid://cypa6apy3l6fd" path="res://scripts/LevelGenerator.gd" id="1_jj0au"]
+[ext_resource type="Script" uid="uid://dc5w12etb5t6f" path="res://scripts/texture_filter_offset.gd" id="2_5irk3"]
+[ext_resource type="PackedScene" uid="uid://be8qbmt0fe144" path="res://scenes/player.tscn" id="2_tt5ry"]
+[ext_resource type="PackedScene" uid="uid://cw1k1q02mkpbg" path="res://scenes/chunks/chunk_base.tscn" id="2_wy0bs"]
+[ext_resource type="PackedScene" uid="uid://2bly0j11rj1h" path="res://scenes/chunks/chunk_ladder.tscn" id="3_emumq"]
+[ext_resource type="PackedScene" uid="uid://yep54v7rwou8" path="res://scenes/chunks/chunk_obstacles.tscn" id="4_5irk3"]
+[ext_resource type="PackedScene" uid="uid://cye5o1wxoy36t" path="res://scenes/chunks/chunk_water.tscn" id="5_wj2hs"]
+[ext_resource type="Texture2D" uid="uid://bqsgk8celni4l" path="res://assets/background/City background.png" id="7_emumq"]
+[ext_resource type="PackedScene" uid="uid://dmrpcsnm6lh70" path="res://scenes/chunks/chunk_dock.tscn" id="8_wj2hs"]
+[ext_resource type="PackedScene" uid="uid://ded7v8urxgo3c" path="res://scenes/zone_water.tscn" id="10_oa7qk"]
+
+[node name="main_world" type="Node2D" unique_id=1463910128]
+
+[node name="BackgroundLayer" type="CanvasLayer" parent="." unique_id=1752643433]
+layer = -100
+
+[node name="TextureRect" type="TextureRect" parent="BackgroundLayer" unique_id=1919643193]
+offset_left = -128.0
+offset_top = -64.0
+offset_right = 896.0
+offset_bottom = 282.0
+scale = Vector2(1.589228, 2.231525)
+texture = ExtResource("7_emumq")
+script = ExtResource("2_5irk3")
+
+[node name="LevelGenerator" type="Node2D" parent="." unique_id=352216701 node_paths=PackedStringArray("player")]
+script = ExtResource("1_jj0au")
+chunk_scenes = Array[PackedScene]([ExtResource("2_wy0bs"), ExtResource("3_emumq"), ExtResource("4_5irk3"), ExtResource("5_wj2hs"), ExtResource("8_wj2hs")])
+player = NodePath("../player")
+
+[node name="player" parent="." unique_id=205934740 instance=ExtResource("2_tt5ry")]
+position = Vector2(4, 541)
+
+[node name="ZoneWater" parent="." unique_id=1957249064 node_paths=PackedStringArray("player") instance=ExtResource("10_oa7qk")]
+player = NodePath("../player")
+water_level_y = 20.0

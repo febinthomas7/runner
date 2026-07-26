@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://ddwn7tp7qblag"]
+
+[ext_resource type="Script" uid="uid://cgwcdaupu7kti" path="res://scripts/zone_stair.gd" id="1_fpctf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8vmw"]
+
+[node name="zone_stair" type="Area2D" unique_id=1801787415]
+script = ExtResource("1_fpctf")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1125530909]
+shape = SubResource("RectangleShape2D_b8vmw")
